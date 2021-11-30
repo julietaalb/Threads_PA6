@@ -1,0 +1,4 @@
+randomgen 200000000 | yourprogram -len 3,4,8 -nthreads 32 -verbose -time -sorted -distinct
+
+
+seconds = nanoseconds ÷ 1,000,000,000
