@@ -1,10 +1,16 @@
-CC=gcc 
-CFLAGS=-I. -g -w -lpthread 
+CC = gcc
+CFLAGS = -I. -g -pthread -w
 DEPS = randomgen.h
 OBJ = randomgen.o wordpuzzle.o
 
-%.o: %.c $(DEPS)
+%.o: %.c 
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-randomgen: $(OBJ)
+wordpuzzle: wordpuzzle.o
 	$(CC) -o $@ $^ $(CFLAGS)
+
+randomgen: randomgen.o
+	$(CC) -o $@ $^ $(CFLAGS)
+
+Clean:
+	rm *.o wordpuzzle randomgen
